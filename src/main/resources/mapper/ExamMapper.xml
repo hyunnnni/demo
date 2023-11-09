@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.demo.exam.ExamMapper">
+    <select id = "selExamList">
+        SELECT person_id AS personId, fname,lname, eye_color AS eyeColor, birth_date AS birthDate, street, city,
+        state, country, postal_code AS postalCode
+        FROM person
+    </select>
+
+    <select id="selExamById">
+        SELECT person_id AS personId,fname,lname, eye_color AS eyeColor, birth_date AS birthDate, street, city,
+        state, country, postal_code AS postalCode
+        FROM person
+        WHERE person_id IN (#{personId}, #{personii})
+    </select>
+
+    <insert id="insExam">
+        INSERT INTO person
+        (person_id ,fname,lname, eye_color, birth_date , street, city,
+        state, country, postal_code)
+        VALUES
+        (#{personId}, #{fname}, #{lname}, #{eyeColor}, #{birthDate}, #{street}, #{city},
+        #{state}, #{country}, #{postalCode})
+        <!-- #{해당 클래스의 멤버필드명 } 을 적어야 한다.
+        위의 select문에서는 받아오는 person_id가 클래스의 멤버필드의 값을 넣은게 아닌 받아온 값을 넣는 거라 멤버필드와 동일하게
+        적을 필요가 없고 컬럼명과도 동일할 필요가 없다 들어오게 되는 값이 무조건 한자리만 있기에 알아서 들어가기 때문이다.
+        AS를 준 이유는 리턴해준 list나 주소값 안 의 멤버필드가 컬럼명과 동일 해야 멤버필드에 들어갔던 값이 컬럼명과 매치되면서
+        그 값들을 조회할 수 있게 된다 -->
+    </insert>
+
+    <delete id="delExam">
+        DELETE FROM person
+        WHERE person_id = #{person_id}
+    </delete>
+
+    <update id="updExam">
+        UPDATE person
+        set fname = #{fname},
+        lname = #{lname},
+        city = #{city}
+        WHERE person_id = #{personId}
+    </update>
+</mapper>
