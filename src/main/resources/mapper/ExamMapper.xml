@@ -2,7 +2,6 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
-
 <mapper namespace="com.example.demo.exam.ExamMapper">
     <select id = "selExamList">
         SELECT person_id AS personId, fname,lname, eye_color AS eyeColor, birth_date AS birthDate, street, city,
