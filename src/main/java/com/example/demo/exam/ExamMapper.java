@@ -12,7 +12,7 @@ import java.util.List;
 public interface ExamMapper {
     List<ExamVo> selExamList();
 
-    List<ExamVo> selExamById(int personId, int personii);
+    List<ExamVo> selExamById(int personId2, int personii2);
 
     int insExam(ExamInsDto dto);
     int delExam(int personId);

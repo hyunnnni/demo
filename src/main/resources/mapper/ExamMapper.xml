@@ -13,7 +13,7 @@
         SELECT person_id AS personId,fname,lname, eye_color AS eyeColor, birth_date AS birthDate, street, city,
         state, country, postal_code AS postalCode
         FROM person
-        WHERE person_id IN (#{personId}, #{personii})
+        WHERE person_id IN (#{personId2}, #{personii2})
     </select>
 
     <insert id="insExam">
