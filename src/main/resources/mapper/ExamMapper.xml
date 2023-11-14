@@ -32,7 +32,7 @@
 
     <delete id="delExam">
         DELETE FROM person
-        WHERE person_id = #{person_id}
+        WHERE person_id = #{personId}
     </delete>
 
     <update id="updExam">

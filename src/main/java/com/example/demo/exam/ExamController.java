@@ -1,5 +1,6 @@
 package com.example.demo.exam;
 
+import com.example.demo.ResVo;
 import com.example.demo.exam.model.ExamDetailVo;
 import com.example.demo.exam.model.ExamInsDto;
 import com.example.demo.exam.model.ExamUpd;
@@ -25,17 +26,17 @@ public class ExamController {
     }
 
     @PostMapping("/exam")
-    public int postPerson(@RequestBody ExamInsDto dto){
+    public ResVo postPerson(@RequestBody ExamInsDto dto){
         return service.postPerson(dto);
     }
 
     @DeleteMapping("/exam/{personId}")
-    public int getDel(@PathVariable int personId){
+    public ResVo getDel(@PathVariable int personId){
         return service.getDel(personId);
     }
 
     @PutMapping("/exam")
-    public int getUpd(@RequestBody ExamUpd eu){
+    public ResVo getUpd(@RequestBody ExamUpd eu){
         return service.getUpd(eu);
     }
 }

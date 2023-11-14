@@ -1,5 +1,6 @@
 package com.example.demo.exam;
 
+import com.example.demo.ResVo;
 import com.example.demo.exam.model.ExamDetailVo;
 import com.example.demo.exam.model.ExamInsDto;
 import com.example.demo.exam.model.ExamUpd;
@@ -28,15 +29,18 @@ public class ExamService {
         return mapper.selExamById(personId,personii);
     }
 
-    public int postPerson(ExamInsDto dto){
-        return mapper.insExam(dto);
+    public ResVo postPerson(ExamInsDto dto){
+        int result = mapper.insExam(dto);
+        return new ResVo(result);
     }
 
-    public int getDel (int personId){
-        return mapper.delExam(personId);
+    public ResVo getDel (int personId){
+        int result = mapper.delExam(personId);
+        return new ResVo(result);
     }
 
-    public int getUpd (ExamUpd eu){
-        return mapper.updExam(eu);
+    public ResVo getUpd (ExamUpd eu){
+        int result = mapper.updExam(eu);
+        return new ResVo(result);
     }
 }
